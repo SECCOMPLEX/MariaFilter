@@ -97,6 +97,7 @@ async def next_page(bot, query):
                                   callback_data="pages")]
         )
     elif off_set is None:
+        btn.append([InlineKeyboardButton("CHECK MY PM", url=f"https://telegram.dog/{temp.U_NAME}?")])
         btn.append(
             [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
@@ -588,12 +589,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     InlineKeyboardButton('Bot PM', callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}'),
                     InlineKeyboardButton('✅ Yes' if settings["botpm"] else '❌ No',
                                          callback_data=f'setgs#botpm#{settings["botpm"]}#{str(grp_id)}')
-                ],
-                [
-                    InlineKeyboardButton('File Secure',
-                                         callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}'),
-                    InlineKeyboardButton('✅ Yes' if settings["file_secure"] else '❌ No',
-                                         callback_data=f'setgs#file_secure#{settings["file_secure"]}#{str(grp_id)}')
                 ],
                 [
                     InlineKeyboardButton('IMDB', callback_data=f'setgs#imdb#{settings["imdb"]}#{str(grp_id)}'),
